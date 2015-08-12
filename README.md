@@ -1,25 +1,28 @@
 # Ember-validator
 
-This README outlines the details of collaborating on this Ember addon.
+[validator.js](https://github.com/chriso/validator.js) computed macros for Ember.
 
 ## Installation
 
-* `git clone` this repository
-* `npm install`
-* `bower install`
+* `ember install ember-validator`
 
-## Running
+## Computed macro
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+Ember-validator exposes all functions from the validator library as computed macro. Check [https://github.com/chriso/validator.js#validators](validator.js) for an exhaustive list of validators.
 
-## Running Tests
+### Example
 
-* `ember test`
-* `ember test --server`
+```js
 
-## Building
+import computed from 'ember-validator/computed';
 
-* `ember build`
+export default Ember.Object.extend({
 
-For more information on using ember-cli, visit [http://www.ember-cli.com/](http://www.ember-cli.com/).
+  email: 'olivier@mail.ext',
+
+  //  check if the string is an email.
+  isEmail: computed.isEmail(email)
+
+});
+
+```
